@@ -71,6 +71,8 @@ services:
        - './nginx/etc/nginx.conf:/etc/nginx/nginx.conf:ro'
        - './nginx/public:/usr/share/nginx/html:ro'
        - './nginx/etc/.htpasswd.user:/etc/nginx/.htpasswd.user:ro'
+       - './nginx/etc/ssl/domain.crt:/etc/nginx/ssl/domain.crt:ro'
+       - './nginx/etc/ssl/domain.rsa:/etc/nginx/ssl/domain.rsa:ro'
      links:
        - elasticsearch
        - kibana
@@ -78,7 +80,7 @@ services:
        - elasticsearch
        - kibana
      ports:
-       - '80:80'
+       - '443:443'
      networks:
        - elk      
          
